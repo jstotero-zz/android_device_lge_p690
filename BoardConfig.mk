@@ -5,7 +5,8 @@ USE_CAMERA_STUB := true
 
 #GENERAL
 TARGET_NO_BOOTLOADER := true
-TARGET_NO_RADIOIMAGE := true
+#TARGET_NO_RADIOIMAGE := true
+TARGET_PROVIDES_INIT_TARGET_RC := true
 
 #CPU and GPU
 TARGET_ARCH_VARIANT := armv6-vfp
@@ -52,8 +53,8 @@ BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_QCOM_LIBS := true
 BOARD_USES_QCOM_LIBRPC := true
 
-#TARGET_PROVIDES_LIBAUDIO := true
-#TARGET_PROVIDES_LIBRIL := true
+TARGET_PROVIDES_LIBAUDIO := true
+TARGET_PROVIDES_LIBRIL := true
 
 #Bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -65,42 +66,45 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := p690
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
 # Graphics
-#TARGET_SPECIFIC_HEADER_PATH := device/lge/p690/include
-TARGET_HARDWARE_3D := false
+TARGET_SPECIFIC_HEADER_PATH := device/lge/p690/include
+#TARGET_HARDWARE_3D := false
 TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
-BOARD_EGL_CFG := vendor/lge/p690/proprietary/lib/egl/egl.cfg
+BOARD_EGL_CFG := device/lge/p690/configs/egl.cfg
 
 # WiFI
-BOARD_WPA_SUPPLICANT_DRIVER := WEXT
 BOARD_WLAN_DEVICE := bcm4330
-WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/wl/rtecdc.bin nvram_path=/system/etc/wl/nvram.txt"
-WIFI_DRIVER_MODULE_NAME := "wireless"
-WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wireless.ko"
-WIFI_DRIVER_FW_STA_PATH := "/system/etc/wl/rtecdc.bin"
-WIFI_DRIVER_FW_AP_PATH := "/system/etc/wl/rtecdc-apsta.bin"
-WIFI_DRIVER_HAS_LGE_SOFTAP := true
-WPA_SUPPLICANT_VERSION := VER_0_6_X
+WIFI_DRIVER_FW_STA_PATH         := "/system/etc/wl/rtecdc.bin"
+WIFI_DRIVER_FW_AP_PATH          := "/system/etc/wl/rtecdc-apsta.bin"
+WIFI_DRIVER_MODULE_NAME         := "wireless"
+WIFI_DRIVER_MODULE_PATH         := "/system/lib/modules/wireless.ko"
+WIFI_DRIVER_MODULE_ARG          := "firmware_path=/etc/wl/rtecdc.bin nvram_path=/etc/wl/nvram.txt config_path=/data/misc/wifi/config"
+WPA_SUPPLICANT_VERSION          := VER_0_6_X
+WIFI_DRIVER_HAS_LGE_SOFTAP      := true
+BOARD_WEXT_NO_COMBO_SCAN       := true
+BOARD_WPA_SUPPLICANT_DRIVER := WEXT
 
 # Browser
 JS_ENGINE := v8
 
 # USB mass storage
-BOARD_USE_USB_MASS_STORAGE_SWITCH := true
-BOARD_CUSTOM_USB_CONTROLLER := ../../device/lge/p690/netd/UsbController.cpp
+#BOARD_USE_USB_MASS_STORAGE_SWITCH := true
+#BOARD_CUSTOM_USB_CONTROLLER := ../../device/lge/p690/netd/UsbController.cpp
 
 # Sensors
-TARGET_USES_OLD_LIBSENSORS_HAL := true
+#TARGET_USES_OLD_LIBSENSORS_HAL := true
 
 # Audio
 #BOARD_USES_GENERIC_AUDIO := false
-#BOARD_PREBUILT_LIBAUDIO := true
-BUILD_WITH_FULL_STAGEFRIGHT := true
-TARGET_PROVIDES_LIBAUDIO := true 
+#BUILD_WITH_FULL_STAGEFRIGHT := true
 
 #camera
-#off
 BOARD_CAMERA_USE_GETBUFFERINFO := true
 BOARD_USE_CAF_LIBCAMERA := true
+
+## This is failing hard on 4330. hcitool hangs
+#BOARD_FM_DEVICE := bcm4329
+#BOARD_HAVE_FM_RADIO := true
+#BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 
 #OPTIONS
 #WITH_DEXPREOPT := false

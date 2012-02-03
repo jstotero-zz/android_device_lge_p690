@@ -12,8 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifeq ($(TARGET_BOOTLOADER_BOARD_NAME),p690)
-
 LOCAL_PATH := $(call my-dir)
 
 # HAL module implemenation, not prelinked and stored in
@@ -42,4 +40,3 @@ ifeq ($(TARGET_GRALLOC_USES_ASHMEM),true)
 LOCAL_CFLAGS += -DUSE_ASHMEM
 endif
 include $(BUILD_SHARED_LIBRARY)
-endif
