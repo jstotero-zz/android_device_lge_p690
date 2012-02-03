@@ -6,7 +6,7 @@ USE_CAMERA_STUB := true
 #GENERAL
 TARGET_NO_BOOTLOADER := true
 #TARGET_NO_RADIOIMAGE := true
-TARGET_PROVIDES_INIT_TARGET_RC := true
+#TARGET_PROVIDES_INIT_TARGET_RC := true
 
 #CPU and GPU
 TARGET_ARCH_VARIANT := armv6-vfp
@@ -16,7 +16,7 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 TARGET_BOOTLOADER_BOARD_NAME := p690
 
 #Kernel
-BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200n8 androidboot.hardware=p690
+BOARD_KERNEL_CMDLINE := mem=471M console=ttyMSM2,115200n8 androidboot.hardware=gelato
 BOARD_KERNEL_BASE := 0x12800000
 BOARD_KERNEL_PAGESIZE := 2048
 TARGET_PREBUILT_KERNEL := device/lge/p690/kernel
@@ -78,7 +78,9 @@ WIFI_DRIVER_FW_AP_PATH          := "/system/etc/wl/rtecdc-apsta.bin"
 WIFI_DRIVER_MODULE_NAME         := "wireless"
 WIFI_DRIVER_MODULE_PATH         := "/system/lib/modules/wireless.ko"
 WIFI_DRIVER_MODULE_ARG          := "firmware_path=/etc/wl/rtecdc.bin nvram_path=/etc/wl/nvram.txt config_path=/data/misc/wifi/config"
-WPA_SUPPLICANT_VERSION          := VER_0_6_X
+WPA_SUPPLICANT_VERSION := VER_0_5_X
+#this version does not look for connections
+#WPA_SUPPLICANT_VERSION          := VER_0_6_X
 WIFI_DRIVER_HAS_LGE_SOFTAP      := true
 BOARD_WEXT_NO_COMBO_SCAN       := true
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT

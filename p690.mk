@@ -32,6 +32,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/AudioFilter.csv:system/etc/AudioFilter.csv \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
 
+#keys
+    $(LOCAL_PATH)/prebuilt/gelato_keypad.kcm.bin:system/usr/keychars/gelato_keypad.kcm.bin
+
+
 # WiFi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/nvram.txt:system/etc/wl/nvram.txt \
