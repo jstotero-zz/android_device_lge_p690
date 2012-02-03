@@ -46,7 +46,6 @@ PRODUCT_PACKAGES := \\
     FileManager \\
     CMParts \\
     CMStats \\
-    CMParts \\
     AndroidTerm 
 
 # Publish that we support the live wallpaper feature.
