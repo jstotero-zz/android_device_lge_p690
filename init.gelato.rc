@@ -225,11 +225,11 @@ service bluetoothd /system/bin/bluetoothd -n
     group bluetooth net_bt_admin misc			
     disabled
 
-#service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
-#    user bluetooth
-#    group qcom_oncrpc bluetooth net_bt_admin
-#    disabled
-#    oneshot
+service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
+    user bluetooth
+    group qcom_oncrpc bluetooth net_bt_admin
+    disabled
+    oneshot
 # --- BRCM ---
 ## LGE_DEV_END
 

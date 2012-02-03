@@ -45,6 +45,8 @@ PRODUCT_PACKAGES := \\
     librs_jni \\
     FileManager \\
     CMParts \\
+    CMStats \\
+    CMParts \\
     AndroidTerm 
 
 # Publish that we support the live wallpaper feature.
@@ -169,7 +171,8 @@ PRODUCT_COPY_FILES += \\
 
 ## BT
 PRODUCT_COPY_FILES += \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/bin/BCM4330B1_002.001.003.0337.0338.hcd:system/bin/BCM4330B1_002.001.003.0337.0338.hcd
+    vendor/__VENDOR__/__DEVICE__/proprietary/bin/BCM4330B1_002.001.003.0337.0338.hcd:system/bin/BCM4330B1_002.001.003.0337.0338.hcd \\
+    vendor/__VENDOR__/__DEVICE__/proprietary/bin/btld:system/bin/btld
 
 ## WiFi
 PRODUCT_COPY_FILES += \\
