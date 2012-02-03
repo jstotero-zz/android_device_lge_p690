@@ -33,6 +33,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
 
 #keys
+PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/gelato_keypad.kcm.bin:system/usr/keychars/gelato_keypad.kcm.bin
 
 
@@ -88,6 +89,12 @@ PRODUCT_PACKAGES += \
     hwaddrs \
     copybit.msm7k \
     libOmxCore
+
+#
+# boot-animation!
+#
+PRODUCT_COPY_FILES +=  \
+    vendor/cyanogen/prebuilt/mdpi/media/bootanimation.zip:system/media/bootanimation.zip
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_p690
