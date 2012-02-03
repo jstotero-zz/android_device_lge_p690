@@ -111,6 +111,7 @@ adb pull /system/lib/libdivxdrmdecrypt.so ../../../vendor/$VENDOR/$DEVICE/propri
 adb pull /system/bin/BCM4330B1_002.001.003.0337.0338.hcd ../../../vendor/$VENDOR/$DEVICE/proprietary/bin/
 
 ## Wifi
+adb pull /system/etc/wl/rtecdc-mfgtest.bin ../../../vendor/$VENDOR/$DEVICE/proprietary/etc/wl/
 adb pull /system/etc/wl/rtecdc-apsta.bin ../../../vendor/$VENDOR/$DEVICE/proprietary/etc/wl/
 adb pull /system/etc/wl/rtecdc.bin ../../../vendor/$VENDOR/$DEVICE/proprietary/etc/wl/
 

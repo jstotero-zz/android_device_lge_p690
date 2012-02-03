@@ -42,7 +42,10 @@ PRODUCT_PACKAGES := \\
     LiveWallpapersPicker \\
     MagicSmokeWallpapers \\
     VisualizationWallpapers \\
-    librs_jni
+    librs_jni \\
+    FileManager \\
+    CMParts \\
+    AndroidTerm 
 
 # Publish that we support the live wallpaper feature.
 PRODUCT_COPY_FILES := \\
@@ -108,10 +111,13 @@ PRODUCT_COPY_FILES += \\
 ## Audio
 
 PRODUCT_COPY_FILES += \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so
+    vendor/__VENDOR__/__DEVICE__/proprietary/lib/libaudioeq.so:system/lib/libaudioeq.so \\
 
-## HAL
+## HAL & 2D
 PRODUCT_COPY_FILES += \\
+    vendor/__VENDOR__/__DEVICE__/proprietary/lib/hw/gralloc.msm7k.so:system/lib/hw/gralloc.msm7k.so \\
+    vendor/__VENDOR__/__DEVICE__/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \\
+    vendor/__VENDOR__/__DEVICE__/proprietary/lib/hw/copybit.msm7k.so:system/lib/hw/copybit.msm7k.so \\
     vendor/__VENDOR__/__DEVICE__/proprietary/lib/hw/lights.msm7k.so:system/lib/hw/lights.msm7k.so \\
     vendor/__VENDOR__/__DEVICE__/proprietary/lib/hw/sensors.msm7k.so:system/lib/hw/sensors.msm7k.so
 
@@ -168,8 +174,16 @@ PRODUCT_COPY_FILES += \\
 ## WiFi
 PRODUCT_COPY_FILES += \\
     vendor/__VENDOR__/__DEVICE__/proprietary/etc/wl/rtecdc.bin:system/etc/wl/rtecdc.bin \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/etc/wl/rtecdc-apsta.bin:system/etc/wl/rtecdc-apsta.bin
+    vendor/__VENDOR__/__DEVICE__/proprietary/etc/wl/rtecdc-apsta.bin:system/etc/wl/rtecdc-apsta.bin \\
+    vendor/__VENDOR__/__DEVICE__/proprietary/etc/wl/rtecdc-mfgtest.bin:system/etc/wl/rtecdc-mfgtest.bin
+
+# CND
+PRODUCT_COPY_FILES += \
+    vendor/__VENDOR__/__DEVICE__/proprietary/bin/cnd:system/bin/cnd \
+
 EOF
+
+
 
 (cat << EOF) | sed s/__DEVICE__/$DEVICE/g | sed s/__VENDOR__/$VENDOR/g > ../../../vendor/$VENDOR/$DEVICE/BoardConfigVendor.mk
 # Copyright (C) 2011 The CyanogenMod Project
