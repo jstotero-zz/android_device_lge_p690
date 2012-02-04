@@ -51,9 +51,7 @@ failed ()
 start_hciattach ()
 {
   echo 1 > $BLUETOOTH_SLEEP_PATH
-# LG_FW_AUDIO_BROADCOM_BT
-#   /system/bin/hciattach -n $QSOC_DEVICE $QSOC_TYPE $QSOC_BAUD &
-  /system/bin/hciattach -s 115200 -n /dev/ttyHS0 bcm4325 4000000 flow &
+  /system/bin/hciattach -n /dev/ttyHS0 any 3000000 flow &
   hciattach_pid=$!
   logi "start_hciattach: pid = $hciattach_pid"
 }
@@ -67,29 +65,8 @@ kill_hciattach ()
   # this shell doesn't exit now -- wait returns for normal exit
 }
 
-# mimic hciattach options parsing -- maybe a waste of effort
-USAGE="hciattach [-n] [-p] [-b] [-t timeout] [-s initial_speed] <tty> <type | id> [speed] [flow|noflow] [bdaddr]"
-
-while getopts "blnpt:s:" f
-do
-  case $f in
-  b | l | n | p)  opt_flags="$opt_flags -$f" ;;
-  t)      timeout=$OPTARG;;
-  s)      initial_speed=$OPTARG;;
-  \?)     echo $USAGE; exit 1;;
-  esac
-done
-shift $(($OPTIND-1))
-
-QSOC_DEVICE=${1:-"/dev/ttyHS0"}
-QSOC_TYPE=${2:-"any"}
-QSOC_BAUD=${3:-"3000000"}
-
-# LG_FW_AUDIO_BROADCOM_BT
-#/system/bin/hci_qcomm_init -d $QSOC_DEVICE -s $QSOC_BAUD
-/system/bin/bcmtool /dev/ttyHS0 -FILE=/system/bin/BCM4330B1_37.4MHz_002.001.003.0006.0010.hcd -ADDR=/system/bin/bdaddr -LP -SETSCO=0,4,0,0,0,0,0,3,3,0 -DEBUG
-#/system/bin/bcmtool /dev/ttyHS0 -FILE=/system/bin/BCM4325D1_004.002.004.0218.0248.hcd -ADDR=/system/bin/bdaddr -LP -SETSCO=0,4,0,0,0,0,0,3,3,0 -DEBUG
-
+/system/bin/brcm_patchram_plus -d --patchram /system/bin/BCM4330B1_002.001.003.0337.0338.hcd /dev/ttyHS0
+/system/bin/brcm_patchram_plus -d -baudrate 3000000 /dev/ttyHS0 
 exit_code_hci_qcomm_init=$?
 
 case $exit_code_hci_qcomm_init in
@@ -98,7 +75,7 @@ case $exit_code_hci_qcomm_init in
 esac
 
 # init does SIGTERM on ctl.stop for service
-#trap "kill_hciattach" TERM INT
+trap "kill_hciattach" TERM INT
 
 start_hciattach
 

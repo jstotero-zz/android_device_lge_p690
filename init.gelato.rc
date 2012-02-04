@@ -178,50 +178,11 @@ on property:ro.build.type=userdebug
 on property:init.svc.hcid=running
 	write /sys/devices/virtual/bluetooth/hci0/idle_timeout 7000
 
-
-
-## LGE_DEV_PORTING
-# +++ BRCM +++
-# Make sure we startup btld before bluetoothd
-# Set target address to emulator host loopback IF
-# Limit baudrate to 460800 to ensure reliable uart operation
-#sangyeol.lee 20110307 changed from 
-#service btld /system/bin/logwrapper /system/bin/btld -pf /system/bin/BCM4330B1_37.4MHz_002.001.003.0006.0010.hcd -hb 4000000 -lpm 1
-#sangyeol.lee 20110307 changed to 
-#service btld /system/bin/logwrapper /system/bin/btld -pf /system/bin/BCM4330B1_002.001.003.0023.0036.hcd -hb 4000000 -lpm 1
-#service btld /system/bin/logwrapper /system/bin/btld -pf /system/bin/BCM4330B1_002.001.003.0043.0091.hcd -hb 4000000 -lpm 1
-#service btld /system/bin/logwrapper /system/bin/btld -pf /system/bin/BCM4330B1_002.001.003.0128.0000_TESTONLY_Gelato_37_4MHz_BT3.0.hcd -hb 4000000 -lpm 1
-#service btld /system/bin/logwrapper /system/bin/btld -pf /system/bin/BCM4330B1_002.001.003.0128.0155.hcd -hb 4000000 -lpm 1
-
-service btld /system/bin/logwrapper /system/bin/btld -pf /system/bin/BCM4330B1_002.001.003.0337.0338.hcd -hb 4000000 -lpm 1
-    user root			
-    group bluetooth net_bt_admin			
-    disabled			
-    oneshot			
-
-# start btld if soft_onoff is enabled
-on property:service.brcm.bt.soft_onoff=1
-    start btld
-
-# stop btld if soft_onoff is disabled
-on property:service.brcm.bt.soft_onoff=0
-    stop btld
-				
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     user bluetooth
     group qcom_oncrpc bluetooth net_bt_admin
     disabled
     oneshot
-# --- BRCM ---
-## LGE_DEV_END
-
-service hcid /system/bin/hcid -s -n -f /etc/bluez/hcid.conf
-    socket bluetooth stream 660 bluetooth bluetooth
-    socket dbus_bluetooth stream 660 bluetooth bluetooth
-    # init.rc does not yet support applying capabilities, so run as root and
-    # let hcid drop uid to bluetooth with the right linux capabilities
-    group bluetooth net_bt_admin misc
-    disabled
 
 service hfag /system/bin/sdptool add --channel=10 HFAG
     user bluetooth
@@ -364,12 +325,6 @@ on property:persist.service.events.enable=0
 	stop logcat-events
 # LGE_CHANGE_E suntae.joo@lge.com 2010-07-14
 
-# Hidden Reset
-service hidden-reset /system/bin/sh /init.lge.hidden_reset.sh
-    user root
-    disabled
-    oneshot
-
-on property:dev.bootdone=1
-    start hidden-reset
+on property:dev.bootcomplete=1
+    exec /system/bin/hwaddrs
 
