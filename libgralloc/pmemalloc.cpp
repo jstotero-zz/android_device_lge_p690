@@ -87,7 +87,12 @@ int PmemUserspaceAllocator::init_pmem_area_locked()
     int fd = deps.open(pmemdev, O_RDWR, 0);
     if (fd >= 0) {
         size_t size = 0;
-        size = 8<<20;   // MiB
+        err = deps.getPmemTotalSize(fd, &size);
+        if (err < 0) {
+            LOGE("%s: PMEM_GET_TOTAL_SIZE failed (%d), limp mode", pmemdev,
+                    err);
+            size = 8<<20;   // 8 MiB
+        }
         allocator.setSize(size);
 
         void* base = deps.mmap(0, size, PROT_READ|PROT_WRITE, MAP_SHARED, fd,

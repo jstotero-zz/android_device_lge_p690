@@ -88,8 +88,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     gralloc.p690 \
     gps.p690 \
+    copybit.p690 \
     hwaddrs \
-    copybit.msm7k \
     libOmxCore
 
 #

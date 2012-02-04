@@ -229,11 +229,6 @@ service port-bridge /system/bin/port-bridge /dev/atcmd-tty1 /dev/ttyGS0
 	user system
 	group system inet
 
-#on property:init.svc.bootlogo=stopped
-#on property:init.svc.bootanim=stopped
-#	start port-bridge
-## LGE_DEV_END
-
 
 ## WIFI
 service wpa_supplicant /system/bin/wpa_supplicant -Dwext -iwlan0 -c/data/misc/wifi/wpa_supplicant.conf #-dd
