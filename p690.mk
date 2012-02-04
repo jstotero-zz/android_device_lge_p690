@@ -26,6 +26,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/init.qcom.bt.sh:system/bin/init.qcom.bt.sh
 
 # configs
+#TODO : check if these 4 files are needed or not , pushed manually
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/qt602240_ts_input.kl:system/usr/keylayout/qt602240_ts_input.kl \
     #$(LOCAL_PATH)/configs/gelato_keypad.kl:system/usr/keylayout/gelato_keypad.kl \
