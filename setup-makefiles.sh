@@ -110,11 +110,14 @@ PRODUCT_COPY_FILES += \\
 
 ## HAL & 2D
 PRODUCT_COPY_FILES += \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/lib/hw/gralloc.msm7k.so:system/lib/hw/gralloc.msm7k.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \\
-    vendor/__VENDOR__/__DEVICE__/proprietary/lib/hw/copybit.msm7k.so:system/lib/hw/copybit.msm7k.so \\
     vendor/__VENDOR__/__DEVICE__/proprietary/lib/hw/lights.msm7k.so:system/lib/hw/lights.msm7k.so \\
     vendor/__VENDOR__/__DEVICE__/proprietary/lib/hw/sensors.msm7k.so:system/lib/hw/sensors.msm7k.so
+#PRODUCT_COPY_FILES += \\
+#    vendor/__VENDOR__/__DEVICE__/proprietary/lib/hw/gralloc.msm7k.so:system/lib/hw/gralloc.msm7k.so \\
+#    vendor/__VENDOR__/__DEVICE__/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \\
+#    vendor/__VENDOR__/__DEVICE__/proprietary/lib/hw/copybit.msm7k.so:system/lib/hw/copybit.msm7k.so \\
+#    vendor/__VENDOR__/__DEVICE__/proprietary/lib/hw/lights.msm7k.so:system/lib/hw/lights.msm7k.so \\
+#    vendor/__VENDOR__/__DEVICE__/proprietary/lib/hw/sensors.msm7k.so:system/lib/hw/sensors.msm7k.so
 
 ## EGL
 PRODUCT_COPY_FILES += \\
