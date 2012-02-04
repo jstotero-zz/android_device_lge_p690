@@ -32,15 +32,15 @@ hs.systemserver=48m
 #
 # system props for the MM modules
 #
-media.stagefright.enable-player=true
+#media.stagefright.enable-player=true
 #media.stagefright.enable-meta=false
-media.stagefright.enable-scan=true
-media.stagefright.enable-http=true
+#media.stagefright.enable-scan=true
+#media.stagefright.enable-http=true
 
-media.video.max-width=800
-media.video.max-height=480
-media.divx-video.max-width=720
-media.divx-video.max-height=480
+#media.video.max-width=800
+#media.video.max-height=480
+#media.divx-video.max-width=720
+#media.divx-video.max-height=480
 #LGE_DEV_END
 
 ro.lge.vibrator_amp=120
