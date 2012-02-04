@@ -28,7 +28,7 @@ PRODUCT_COPY_FILES += \
 # configs
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/qt602240_ts_input.kl:system/usr/keylayout/qt602240_ts_input.kl \
-    $(LOCAL_PATH)/configs/gelato_keypad.kl:system/usr/keylayout/gelato_keypad.kl \
+    #$(LOCAL_PATH)/configs/gelato_keypad.kl:system/usr/keylayout/gelato_keypad.kl \
     $(LOCAL_PATH)/configs/AudioFilter.csv:system/etc/AudioFilter.csv \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
     $(LOCAL_PATH)/configs/AutoVolumeControl.txt:system/etc/AutoVolumeControl.txt 
@@ -85,10 +85,10 @@ PRODUCT_COPY_FILES += \
 
 
 PRODUCT_PACKAGES += \
-    #gralloc.p690 \
+    gralloc.p690 \
     gps.p690 \
     hwaddrs \
-    #copybit.msm7k \
+    copybit.msm7k \
     libOmxCore
 
 #
