@@ -23,7 +23,7 @@ PRODUCT_COPY_FILES += \
 
 # BT startup
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/init.qcom.bt.sh:system/bin/init.qcom.bt.sh
+    $(LOCAL_PATH)/prebuilt/init.qcom.bt.sh:system/etc/init.qcom.bt.sh
 
 # configs
 #TODO : check if these 4 files are needed or not , pushed manually
