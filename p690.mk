@@ -47,10 +47,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/libra.ko:system/lib/modules/libra.ko \
     $(LOCAL_PATH)/prebuilt/librasdioif.ko:system/lib/modules/librasdioif.ko 
     
-# TUN
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/tun.ko:system/lib/modules/tun.ko 
-
 # chargermode
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/chargemode/chargerimages/battery_ani_01.rle:root/chargerimages/battery_ani_01.rle \
