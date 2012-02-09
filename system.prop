@@ -2,6 +2,13 @@
 # system.prop for p690
 #
 
+#miscellaneous
+ro.lge.vibrator_amp=120                           
+ro.opengles.version=131072                        
+ro.telephony.default_network=3                    
+ro.HOME_APP_ADJ=1                                 
+
+#ril
 rild.libpath=/system/lib/libril-qc-1.so                                                                
 rild.libargs=-d /dev/smd0                                                                              
 persist.rild.nitz_plmn=                                                                                
@@ -15,52 +22,66 @@ persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=                                                                         
 ril.subscription.types=NV,RUIM                                                                         
 ro.telephony.ril_class=lgeqcom                                                                         
+
+# 3g Signal tweaks
+ro.ril.hsxpa=2
+ro.ril.gprsclass=10 
+ro.ril.hep=1
+ro.ril.enable.dtm=1
+ro.ril.hsdpa.category=10
+ro.ril.enable.a53=1
+ro.ril.enable.3g.prefix=1
+ro.ril.htcmaskw1.bitmask=4294967295
+ro.ril.htcmaskw1=14449
+ro.ril.hsupa.category=5
+
+# Net tweaks
+net.tcp.buffersize.default=4096,87380,256960,4096, 16384,256960
+net.tcp.buffersize.wifi=4096,87380,256960,4096,163 84,256960
+net.tcp.buffersize.umts=4096,87380,256960,4096,163 84,256960
+net.tcp.buffersize.gprs=4096,87380,256960,4096,163 84,256960
+net.tcp.buffersize.edge=4096,87380,256960,4096,163 84,256960
                                                                                                        
 # The camera blob needs this                                                                           
 ro.product.qcomdevice=msm7627_surf                                                                     
-                                                                                                       
 ro.bt.bdaddr_path=/data/misc/bd_addr                                                                   
-                                                                                                       
+
+# video
+ro.sf.lcd_density=160               
 debug.sf.hw=1                                                                                          
 debug.composition.type=mdp                                                                             
-                                                                                                       
-#LGE_DEV_PORTING GELATO : Default heap size define                                                     
+media.stagefright.enable-player=true             
+media.stagefright.enable-meta=false              
+media.stagefright.enable-scan=true               
+media.stagefright.enable-http=true               
+media.video.max-width=800                        
+media.video.max-height=480                       
+media.divx-video.max-width=720                   
+media.divx-video.max-height=480                  
+                    
+#dalvik                    
 dalvik.vm.heapsize=48m                                                                                 
 hs.systemserver=48m                                                                                    
-#LGE_DEV_END                                                                                           
-#LGE_DEV_PORTING jongmin1.lee@lge.com                                                                  
-#                                                                                                      
-# system props for the MM modules                                                                      
-#                                                                                                      
-#media.stagefright.enable-player=true             
-#media.stagefright.enable-meta=false              
-#media.stagefright.enable-scan=true               
-#media.stagefright.enable-http=true               
-                                                  
-#media.video.max-width=800                        
-#media.video.max-height=480                       
-#media.divx-video.max-width=720                   
-#media.divx-video.max-height=480                  
-#LGE_DEV_END                                      
-                                                  
-ro.lge.vibrator_amp=120                           
-ro.opengles.version=131072                        
-wifi.interface=wlan0                              
-wifi.supplicant_scan_interval=180                 
-ro.com.google.clientidbase=android-lge            
-ro.telephony.default_network=3                    
-dalvik.vm.execution-mode=int:jit                  
-#net.bt.name=Android                              
-dalvik.vm.stack-trace-file=/data/anr/traces.txt   
-ro.HOME_APP_ADJ=1                                 
-ro.telephony.call_ring.delay=0                    
+
+#wifi
+wifi.interface=wlan0                                                                                   
+wifi.supplicant_scan_interval=180                                                       
+
+#performance
 windowsmgr.max_events_per_sec=300                
 debug.performance.tuning=1                        
 video.accelerate.hw=1                             
-#ro.lge.proximity.delay=25                        
-#mot.proximity.delay=25                           
+
+#images and video capturing
 ro.media.enc.jpeg.quality=100                     
-pm.sleep_mode=1                                   
-ro.ril.disable.power.collapse=0                
 ro.media.dec.jpeg.memcap=8000000               
 ro.media.enc.hprof.vid.bps=8000000  
+
+#power saving
+pm.sleep_mode=1                                   
+ro.ril.disable.power.collapse=0                
+
+#phone calls tweaks
+ro.telephony.call_ring.delay=0                    
+ro.lge.proximity.delay=25                        
+mot.proximity.delay=25
