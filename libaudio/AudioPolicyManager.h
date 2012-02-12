@@ -21,7 +21,10 @@
 #include <utils/Errors.h>
 #include <utils/KeyedVector.h>
 #include <hardware_legacy/AudioPolicyManagerBase.h>
+#include <media/AudioSystem.h>
 
+#define DEVICE_OUT_SPEAKER_IN_CALL 0x2000
+#define DEVICE_OUT_SPEAKER_RING 0x4000
 
 namespace android {
 
@@ -29,19 +32,17 @@ class AudioPolicyManager: public AudioPolicyManagerBase
 {
 
 public:
-                AudioPolicyManager(AudioPolicyClientInterface *clientInterface)
-                : AudioPolicyManagerBase(clientInterface) {}
+    AudioPolicyManager(AudioPolicyClientInterface *clientInterface);
 
-        virtual ~AudioPolicyManager() {}
+    virtual ~AudioPolicyManager() {}
+    virtual uint32_t getDeviceForStrategy(routing_strategy strategy, bool fromCache = true);
 
-        virtual uint32_t getDeviceForStrategy(routing_strategy strategy, bool fromCache = true);
 protected:
-        // true is current platform implements a back microphone
-        virtual bool hasBackMicrophone() const { return false; }
+    // true is current platform implements a back microphone
+    virtual bool hasBackMicrophone() const { return false; }
 #ifdef WITH_A2DP
-        // true is current platform supports suplication of notifications and ringtones over A2DP output
-        virtual bool a2dpUsedForSonification() const { return true; }
+    // true is current platform supports suplication of notifications and ringtones over A2DP output
+    virtual bool a2dpUsedForSonification() const { return true; }
 #endif
-
 };
 };

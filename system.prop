@@ -3,25 +3,25 @@
 #
 
 #miscellaneous
-ro.lge.vibrator_amp=120                           
+ro.lge.vibrator_amp=125
 ro.opengles.version=131072                        
 ro.telephony.default_network=3                    
-ro.HOME_APP_ADJ=1                                 
+ro.HOME_APP_ADJ=1      
 
 #ril
-rild.libpath=/system/lib/libril-qc-1.so                                                                
-rild.libargs=-d /dev/smd0                                                                              
-persist.rild.nitz_plmn=                                                                                
-persist.rild.nitz_long_ons_0=                                                                          
-persist.rild.nitz_long_ons_1=                                                                          
-persist.rild.nitz_long_ons_2=                                                                          
-persist.rild.nitz_long_ons_3=                                                                          
-persist.rild.nitz_short_ons_0=                                                                         
-persist.rild.nitz_short_ons_1=                                                                         
-persist.rild.nitz_short_ons_2=                                                                         
-persist.rild.nitz_short_ons_3=                                                                         
-ril.subscription.types=NV,RUIM                                                                         
-ro.telephony.ril_class=lgeqcom                                                                         
+rild.libpath=/system/lib/libril-qc-1.so          
+rild.libargs=-d /dev/smd0                        
+persist.rild.nitz_plmn=                          
+persist.rild.nitz_long_ons_0=                    
+persist.rild.nitz_long_ons_1=                    
+persist.rild.nitz_long_ons_2=                    
+persist.rild.nitz_long_ons_3=                    
+persist.rild.nitz_short_ons_0=                   
+persist.rild.nitz_short_ons_1=                   
+persist.rild.nitz_short_ons_2=                   
+persist.rild.nitz_short_ons_3=                   
+ril.subscription.types=NV,RUIM                   
+ro.telephony.ril_class=lgeqcom                   
 
 # 3g Signal tweaks
 ro.ril.hsxpa=2
@@ -41,15 +41,15 @@ net.tcp.buffersize.wifi=4096,87380,256960,4096,163 84,256960
 net.tcp.buffersize.umts=4096,87380,256960,4096,163 84,256960
 net.tcp.buffersize.gprs=4096,87380,256960,4096,163 84,256960
 net.tcp.buffersize.edge=4096,87380,256960,4096,163 84,256960
-                                                                                                       
-# The camera blob needs this                                                                           
-ro.product.qcomdevice=msm7627_surf                                                                     
-ro.bt.bdaddr_path=/data/misc/bd_addr                                                                   
+                      
+# The camera blob needs this                     
+ro.product.qcomdevice=msm7627_surf               
+ro.bt.bdaddr_path=/data/misc/bd_addr             
 
 # video
 ro.sf.lcd_density=160               
-debug.sf.hw=1                                                                                          
-debug.composition.type=mdp                                                                             
+debug.sf.hw=1         
+debug.composition.type=mdp                       
 media.stagefright.enable-player=true             
 media.stagefright.enable-meta=false              
 media.stagefright.enable-scan=true               
@@ -60,17 +60,17 @@ media.divx-video.max-width=720
 media.divx-video.max-height=480                  
                     
 #dalvik                    
-dalvik.vm.heapsize=48m                                                                                 
-hs.systemserver=48m                                                                                    
+dalvik.vm.heapsize=48m
+hs.systemserver=48m   
 
 #wifi
-wifi.interface=wlan0                                                                                   
-wifi.supplicant_scan_interval=180                                                       
+wifi.interface=wlan0  
+wifi.supplicant_scan_interval=180 
 
 #performance
-windowsmgr.max_events_per_sec=300                
+windowsmgr.max_events_per_sec=260                
 debug.performance.tuning=1                        
-video.accelerate.hw=1                             
+video.accelerate.hw=1  
 
 #images and video capturing
 ro.media.enc.jpeg.quality=100                     
@@ -78,10 +78,10 @@ ro.media.dec.jpeg.memcap=8000000
 ro.media.enc.hprof.vid.bps=8000000  
 
 #power saving
-pm.sleep_mode=1                                   
+pm.sleep_mode=1        
 ro.ril.disable.power.collapse=0                
 
 #phone calls tweaks
 ro.telephony.call_ring.delay=0                    
-ro.lge.proximity.delay=25                        
-mot.proximity.delay=25
+ro.lge.proximity.delay=0                        
+mot.proximity.delay=0

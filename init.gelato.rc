@@ -22,11 +22,11 @@ on boot
     chmod 0660 /sys/class/timed_output/vibrator/amp
 ## SENSOR
 	chown compass system /dev/ami304
-	chmod 0640 dev/ami304
+	chmod 0640 /dev/ami304
 	chown compass system /dev/ami304daemon
-	chmod 0640 dev/ami304daemon
+	chmod 0640 /dev/ami304daemon
 	chown compass system /dev/ami304hal
-	chmod 0640 dev/ami304hal
+	chmod 0640 /dev/ami304hal
 	mkdir /data/amit 0777 ami304d ami304d
 	chmod 0666 /data/amit/AMI306_Config.ini
 	chmod 0666 /data/amit/AMI306_Config2.ini
@@ -57,10 +57,9 @@ on boot
 	chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
 ## LGE_DEV_END
 
-	chown system graphics /dev/hw3d
+	#chown system graphics /dev/hw3d
+	chown root root /dev/hw3d
 	chmod 0660 /dev/hw3d
-	chown root root /dev/kgsl
-	chmod 0666 /dev/kgsl
 	chown root root /dev/kgsl-3d0
 	chmod 0666 /dev/kgsl-3d0
 	chown root root /dev/kgsl-2d0
@@ -113,6 +112,8 @@ on boot
     mkdir /data/radio 0770 radio radio
 	chown system radio /dev/rtc1
 	chmod 0660 radio /dev/rtc1
+    exec /system/xbin/busybox rm /data/gadget.pid
+
 
 # atcmd-tty
 	chown system system /dev/atcmd-tty0
