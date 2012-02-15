@@ -59,11 +59,13 @@ on boot
 
 	#chown system graphics /dev/hw3d
 	chown root root /dev/hw3d
-	chmod 0660 /dev/hw3d
+	chmod 0666 /dev/hw3d
 	chown root root /dev/kgsl-3d0
 	chmod 0666 /dev/kgsl-3d0
 	chown root root /dev/kgsl-2d0
 	chmod 0666 /dev/kgsl-2d0
+	chown root root /dev/kgsl-2d1
+	chmod 0666 /dev/kgsl-2d1
 	chmod 0666 /dev/pmem
 	chown system graphics /dev/pmem_gpu
 	chmod 0666 /dev/pmem_gpu
@@ -162,13 +164,6 @@ on boot
 
     write /sys/module/g_android/parameters/product_id 618E
 
-## LGE_DEV_PORTING
-# FPRITest
-    mkdir /data/fpri 0777 system system
-# DBCHECK
-	mkdir /data/dbcheck 0777 system system
-## LGE_DEV_END
-
 ## Hidden reset for the kernel interface
    chmod 0664 /sys/module/lge_handle_panic/parameters/hidden_reset_enable
 on property:ro.build.type=user
@@ -185,17 +180,17 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     disabled
     oneshot
 
-service hfag /system/bin/sdptool add --channel=10 HFAG
-    user bluetooth
-    group bluetooth net_bt_admin
-    disabled
-    oneshot
+#service hfag /system/bin/sdptool add --channel=10 HFAG
+#    user bluetooth
+#    group bluetooth net_bt_admin
+#    disabled
+#    oneshot
 
-service hsag /system/bin/sdptool add --channel=11 HSAG
-    user bluetooth
-    group bluetooth net_bt_admin
-    disabled
-    oneshot
+#service hsag /system/bin/sdptool add --channel=11 HSAG
+#    user bluetooth
+#    group bluetooth net_bt_admin
+#    disabled
+#    oneshot
 
 service cnd /system/bin/cnd
     socket cnd stream 660 root radio
@@ -246,13 +241,13 @@ service dhcpcd_wlan0 /system/bin/dhcpcd -BKA wlan0 # disable ARP operation
 on property:init.svc.wpa_supplicant=stopped
 stop dhcpcd
 
-service qcom-post-boot /system/bin/sh /init.qcom.post_boot.sh
-	user root
-	disabled
-	oneshot
+#service qcom-post-boot /system/bin/sh /init.qcom.post_boot.sh
+#	user root
+#	disabled
+#	oneshot
 
-on property:dev.bootcomplete=1
-    start qcom-post-boot
+#on property:dev.bootcomplete=1
+#    start qcom-post-boot
 
 service rmt_storage /system/bin/rmt_storage /dev/block/mmcblk0p10 /dev/block/mmcblk0p11
     user root
@@ -267,16 +262,16 @@ service netmgrd /system/bin/netmgrd -E
 on property:ro.use_data_netmgrd=true
     start netmgrd
 
-service wiperiface /system/bin/wiperiface
-    user location
-    group qcom_oncrpc
-    oneshot
+#service wiperiface /system/bin/wiperiface
+#    user location
+#    group qcom_oncrpc
+#    oneshot
 
 # bugreport is triggered by the KEY_VOLUME_DOWN and KEY_MENU keycodes
-service bugreport /system/bin/logwrapper /system/bin/dumpstate -d -v -o /sdcard/bugreports/bugreport
-	disabled
-	oneshot
-	keycodes 114 139
+#service bugreport /system/bin/logwrapper /system/bin/dumpstate -d -v -o /sdcard/bugreports/bugreport
+#	disabled
+#	oneshot
+#	keycodes 114 139
 
 # LGE_CHANGE_S suntae.joo@lge.com 2010-07-14
 # logging service
@@ -300,15 +295,15 @@ on property:persist.service.system.enable=1
 on property:persist.service.system.enable=0
 	stop logcat-system
 
-service logcat-radio /system/bin/logcat -v time -b radio -f /data/logger/radio.log -n 4 -r 4096
-	disabled
-	oneshot
+#service logcat-radio /system/bin/logcat -v time -b radio -f /data/logger/radio.log -n 4 -r 4096
+#	disabled
+#	oneshot
 
-on property:persist.service.radio.enable=1
-	start logcat-radio
+#on property:persist.service.radio.enable=1
+#	start logcat-radio
 
-on property:persist.service.radio.enable=0
-	stop logcat-radio
+#on property:persist.service.radio.enable=0
+#	stop logcat-radio
 
 service logcat-events /system/bin/logcat -v time -b events -f /data/logger/events.log -n 4 -r 4096
 	disabled
@@ -321,6 +316,13 @@ on property:persist.service.events.enable=0
 	stop logcat-events
 # LGE_CHANGE_E suntae.joo@lge.com 2010-07-14
 
-on property:dev.bootcomplete=1
-    exec /system/bin/hwaddrs
+# Hidden Reset
+service hidden-reset /system/bin/sh /init.lge.hidden_reset.sh
+    user root
+    disabled
+    oneshot
+
+on property:dev.bootdone=1
+    start hidden-reset
+
 

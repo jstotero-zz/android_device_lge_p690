@@ -66,7 +66,7 @@ kill_hciattach ()
 }
 
 /system/bin/brcm_patchram_plus -d --patchram /system/bin/BCM4330B1_002.001.003.0337.0338.hcd /dev/ttyHS0
-/system/bin/brcm_patchram_plus -d -baudrate 3000000 /dev/ttyHS0 
+/system/bin/brcm_patchram_plus -d -baudrate 4000000 /dev/ttyHS0 
 exit_code_hci_qcomm_init=$?
 
 case $exit_code_hci_qcomm_init in

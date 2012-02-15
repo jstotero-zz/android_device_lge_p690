@@ -25,6 +25,8 @@ mkdir -p ../../../vendor/$VENDOR/$DEVICE/proprietary/etc/wl
 mkdir -p ../../../vendor/$VENDOR/$DEVICE/proprietary/lib/egl
 mkdir -p ../../../vendor/$VENDOR/$DEVICE/proprietary/lib/hw
 
+#
+
 ## RIL
 
 adb pull /system/lib/libgstk_exp.so ../../../vendor/$VENDOR/$DEVICE/proprietary/lib/libgstk_exp.so
@@ -110,6 +112,13 @@ adb pull /system/lib/libdivxdrmdecrypt.so ../../../vendor/$VENDOR/$DEVICE/propri
 ## BT
 adb pull /system/bin/BCM4330B1_002.001.003.0337.0338.hcd ../../../vendor/$VENDOR/$DEVICE/proprietary/bin/
 adb pull /system/bin/btld ../../../vendor/$VENDOR/$DEVICE/proprietary/bin/
+
+#LGE SERVICES
+adb pull /system/bin/atd ../../../vendor/$VENDOR/$DEVICE/proprietary/bin/
+adb pull /system/bin/port-bridge ../../../vendor/$VENDOR/$DEVICE/proprietary/bin/
+adb pull /system/bin/netmgrd ../../../vendor/$VENDOR/$DEVICE/proprietary/bin/
+adb pull /system/lib/libnetmgr.so ../../../vendor/$VENDOR/$DEVICE/proprietary/lib/
+adb pull /system/lib/so.libdsutils ../../../vendor/$VENDOR/$DEVICE/proprietary/lib/
 
 ## Wifi
 adb pull /system/etc/wl/rtecdc-mfgtest.bin ../../../vendor/$VENDOR/$DEVICE/proprietary/etc/wl/

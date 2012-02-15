@@ -12,7 +12,6 @@ PRODUCT_PACKAGES += \
     libmm-omxcore \
     libOmxCore \
     gps.p690 \
-    copybit.msm7k \
     LiveWallpapers \
     LiveWallpapersPicker \
     MagicSmokeWallpapers \
@@ -25,7 +24,7 @@ PRODUCT_COPY_FILES += \
 
 # configs
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
 
 #keys
 PRODUCT_COPY_FILES += \
@@ -35,15 +34,18 @@ PRODUCT_COPY_FILES += \
 
 # Board-specific init
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/init.lge.hidden_reset.sh:root/init.lge.hidden_reset.sh \
     $(LOCAL_PATH)/init.gelato.rc:root/init.gelato.rc \
-    $(LOCAL_PATH)/ueventd.gelato.rc:root/ueventd.gelato.rc
+    $(LOCAL_PATH)/ueventd.gelato.rc:root/ueventd.gelato.rc \
+    $(LOCAL_PATH)/prebuilt/initlogo.rle:root/initlogo.rle \
     $(LOCAL_PATH)/init.local.rc:/system/etc/init.local.rc
 
 ## 2D (using proprietary)
 PRODUCT_COPY_FILES += \
+    vendor/lge/p690/proprietary/lib/hw/lights.msm7k.so:system/lib/hw/lights.msm7k.so \
     vendor/lge/p690/proprietary/lib/hw/gralloc.msm7k.so:system/lib/hw/gralloc.msm7k.so \
     vendor/lge/p690/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \
-    vendor/lge/p690/proprietary/lib/hw/lights.msm7k.so:system/lib/hw/lights.msm7k.so 
+    vendor/lge/p690/proprietary/lib/hw/copybit.msm7k.so:system/lib/hw/copybit.msm7k.so 
 
 ## Sensors
 PRODUCT_COPY_FILES += \
@@ -127,7 +129,15 @@ PRODUCT_COPY_FILES += \
 
 # LGE services
 PRODUCT_COPY_FILES += \
-    vendor/lge/p690/proprietary/bin/qmuxd:system/bin/qmuxd 
+    vendor/lge/p690/proprietary/bin/qmuxd:system/bin/qmuxd
+    
+# atd
+PRODUCT_COPY_FILES += \
+    vendor/lge/p690/proprietary/bin/atd:system/bin/atd
+
+# port-bridge 
+PRODUCT_COPY_FILES += \
+    vendor/lge/p690/proprietary/bin/port-bridge:system/bin/port-bridge
 
 # netmgr (What is this?)
 PRODUCT_COPY_FILES += \
