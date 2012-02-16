@@ -4,9 +4,12 @@
 
 #miscellaneous
 ro.lge.vibrator_amp=125
-ro.opengles.version=131072                        
+ro.opengles.version=1566933                       
 ro.telephony.default_network=3                    
 ro.HOME_APP_ADJ=1      
+persist.sys.purgeable_assets=0
+persist.android.strictmode=0
+ro.kernel.android.checkjni=0
 
 #ril
 rild.libpath=/system/lib/libril-qc-1.so          
@@ -48,6 +51,7 @@ ro.bt.bdaddr_path=/data/misc/bd_addr
 
 # video
 ro.sf.lcd_density=160               
+qemu.sf.lcd_density=160
 debug.sf.hw=1         
 debug.composition.type=mdp                       
 media.stagefright.enable-player=true             
@@ -62,13 +66,16 @@ media.divx-video.max-height=480
 #dalvik                    
 dalvik.vm.heapsize=48m
 hs.systemserver=48m   
+dalvik.vm.verify-bytecode=false
+dalvik.vm.dexopt-flags=m=v,o=y
+dalvik.vm.dexopt-data-only=1
 
 #wifi
 wifi.interface=wlan0  
 wifi.supplicant_scan_interval=180 
 
 #performance
-windowsmgr.max_events_per_sec=260                
+windowsmgr.max_events_per_sec=120                
 debug.performance.tuning=1                        
 video.accelerate.hw=1  
 
@@ -85,3 +92,4 @@ ro.ril.disable.power.collapse=0
 ro.telephony.call_ring.delay=0                    
 ro.lge.proximity.delay=0                        
 mot.proximity.delay=0
+
