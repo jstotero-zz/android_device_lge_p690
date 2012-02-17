@@ -12,6 +12,7 @@ PRODUCT_PACKAGES += \
     libmm-omxcore \
     libOmxCore \
     gps.p690 \
+    copybit.msm7k \
     LiveWallpapers \
     LiveWallpapersPicker \
     MagicSmokeWallpapers \
@@ -44,8 +45,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/lge/p690/proprietary/lib/hw/lights.msm7k.so:system/lib/hw/lights.msm7k.so \
     vendor/lge/p690/proprietary/lib/hw/gralloc.msm7k.so:system/lib/hw/gralloc.msm7k.so \
-    vendor/lge/p690/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \
-    vendor/lge/p690/proprietary/lib/hw/copybit.msm7k.so:system/lib/hw/copybit.msm7k.so 
+    vendor/lge/p690/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so
 
 ## Sensors
 PRODUCT_COPY_FILES += \
@@ -169,15 +169,15 @@ PRODUCT_COPY_FILES += \
     vendor/lge/p690/proprietary/lib/libOmxWmaDec.so:system/lib/libOmxWmaDec.so \
     vendor/lge/p690/proprietary/lib/libOmxWmvDec.so:system/lib/libOmxWmvDec.so \
     vendor/lge/p690/proprietary/lib/libmm-adspsvc.so:system/lib/libmm-adspsvc.so \
-    vendor/lge/p690/proprietary/lib/libmm-omxcore.so:system/lib/libmm-omxcore.so \
-    vendor/lge/p690/proprietary/lib/libomx_aacdec_sharedlibrary.so:system/lib/libomx_aacdec_sharedlibrary.so \
-    vendor/lge/p690/proprietary/lib/libomx_amrdec_sharedlibrary.so:system/lib/libomx_amrdec_sharedlibrary.so \
-    vendor/lge/p690/proprietary/lib/libomx_amrenc_sharedlibrary.so:system/lib/libomx_amrenc_sharedlibrary.so \
-    vendor/lge/p690/proprietary/lib/libomx_avcdec_sharedlibrary.so:system/lib/libomx_avcdec_sharedlibrary.so \
-    vendor/lge/p690/proprietary/lib/libomx_m4vdec_sharedlibrary.so:system/lib/libomx_m4vdec_sharedlibrary.so \
-    vendor/lge/p690/proprietary/lib/libomx_mp3dec_sharedlibrary.so:system/lib/libomx_mp3dec_sharedlibrary.so \
-    vendor/lge/p690/proprietary/lib/libomx_sharedlibrary.so:system/lib/libomx_sharedlibrary.so \
-    vendor/lge/p690/proprietary/lib/libqcomm_omx.so:system/lib/libqcomm_omx.so \
+#    vendor/lge/p690/proprietary/lib/libmm-omxcore.so:system/lib/libmm-omxcore.so \
+#    vendor/lge/p690/proprietary/lib/libomx_aacdec_sharedlibrary.so:system/lib/libomx_aacdec_sharedlibrary.so \
+#    vendor/lge/p690/proprietary/lib/libomx_amrdec_sharedlibrary.so:system/lib/libomx_amrdec_sharedlibrary.so \
+#    vendor/lge/p690/proprietary/lib/libomx_amrenc_sharedlibrary.so:system/lib/libomx_amrenc_sharedlibrary.so \
+#    vendor/lge/p690/proprietary/lib/libomx_avcdec_sharedlibrary.so:system/lib/libomx_avcdec_sharedlibrary.so \
+#    vendor/lge/p690/proprietary/lib/libomx_m4vdec_sharedlibrary.so:system/lib/libomx_m4vdec_sharedlibrary.so \
+#    vendor/lge/p690/proprietary/lib/libomx_mp3dec_sharedlibrary.so:system/lib/libomx_mp3dec_sharedlibrary.so \
+#    vendor/lge/p690/proprietary/lib/libomx_sharedlibrary.so:system/lib/libomx_sharedlibrary.so \
+#    vendor/lge/p690/proprietary/lib/libqcomm_omx.so:system/lib/libqcomm_omx.so \
     vendor/lge/p690/proprietary/lib/libdivxdrmdecrypt.so:system/lib/libdivxdrmdecrypt.so
 
 ## BT

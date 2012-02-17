@@ -60,6 +60,7 @@ TARGET_PROVIDES_LIBRIL := true
 #Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_CUSTOM_BRCM_PATCHRAM_PLUS := ../../../vendor/lge/thunderg/proprietary/brcm_patchram_plus.c
 
 # GPS 
 BOARD_USES_QCOM_GPS := true
@@ -69,7 +70,6 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 # Graphics
 TARGET_SPECIFIC_HEADER_PATH := device/lge/p690/include
 TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
-#BOARD_USE_SCREENCAP := true
 BOARD_EGL_CFG := device/lge/p690/configs/egl.cfg
 
 # WiFI
