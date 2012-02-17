@@ -14,13 +14,23 @@
     <item>"usb0"</item>
     </string-array>
 
+<!-- Use the new fancy screen off animation.
+         Turn off to use new Gingerbread animation -->
+    <bool name="config_animateScreenLights">false</bool>
+    
+<!-- Enable the screen-on animation -->
+    <bool name="config_enableScreenOnAnimation">false</bool>
+
+    <!-- Enable the screen-off animation -->
+    <bool name="config_enableScreenOffAnimation">false</bool>
+
+    <bool name="config_unplugTurnsOnScreen">true</bool>
+
     <string-array translatable="false" name="config_tether_upstream_regexs">
         <item>"wlan0"</item>
         <item>"vsnet\\d"</item>
         <item>"rmnet\\d"</item>
     </string-array>
-
-    <bool name="config_automatic_brightness_available">false</bool>
 
     <string-array translatable="false" name="config_tether_wifi_regexs">
         <item>"wl0.1"</item>

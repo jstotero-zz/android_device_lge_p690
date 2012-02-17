@@ -4,7 +4,7 @@
 
 #miscellaneous
 ro.lge.vibrator_amp=125
-ro.opengles.version=1566933                       
+ro.opengles.version=131072                      
 ro.telephony.default_network=3                    
 ro.HOME_APP_ADJ=1      
 persist.sys.purgeable_assets=0

@@ -60,6 +60,8 @@ on boot
 	#chown system graphics /dev/hw3d
 	chown root root /dev/hw3d
 	chmod 0666 /dev/hw3d
+	chown root root /dev/kgsl
+	chmod 0666 /dev/kgsl
 	chown root root /dev/kgsl-3d0
 	chmod 0666 /dev/kgsl-3d0
 	chown root root /dev/kgsl-2d0
