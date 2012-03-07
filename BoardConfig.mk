@@ -60,7 +60,7 @@ TARGET_PROVIDES_LIBRIL := true
 #Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_CUSTOM_BRCM_PATCHRAM_PLUS := ../../../vendor/lge/thunderg/proprietary/brcm_patchram_plus.c
+BOARD_CUSTOM_BRCM_PATCHRAM_PLUS := ../../../vendor/lge/p690/proprietary/brcm_patchram_plus.c
 
 # GPS 
 BOARD_USES_QCOM_GPS := true
