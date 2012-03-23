@@ -2,6 +2,10 @@
 # system.prop for p690
 #
 
+#miscellaneous
+ro.lge.vibrator_amp=125
+ro.opengles.version=131072                        
+ro.telephony.default_network=3                    
 ro.HOME_APP_ADJ=1      
 
 #ril
@@ -40,15 +44,33 @@ net.tcp.buffersize.edge=4096,87380,256960,4096,163 84,256960
                       
 # The camera blob needs this                     
 ro.product.qcomdevice=msm7627_surf               
-ro.bt.bdaddr_path=/data/misc/bd_addr 
+ro.bt.bdaddr_path=/data/misc/bd_addr             
 
 # video
-ro.sf.lcd_density=160 
-ro.opengles.version=131072                        
-
+ro.sf.lcd_density=160               
+debug.sf.hw=1         
+debug.composition.type=mdp                       
+media.stagefright.enable-player=true             
+media.stagefright.enable-meta=false              
+media.stagefright.enable-scan=true               
+media.stagefright.enable-http=true               
+media.video.max-width=800                        
+media.video.max-height=480                       
+media.divx-video.max-width=720                   
+media.divx-video.max-height=480                  
+                    
 #dalvik                    
 dalvik.vm.heapsize=48m
 hs.systemserver=48m   
+
+#wifi
+wifi.interface=wlan0  
+wifi.supplicant_scan_interval=180 
+
+#performance
+windowsmgr.max_events_per_sec=260                
+debug.performance.tuning=1                        
+video.accelerate.hw=1  
 
 #images and video capturing
 ro.media.enc.jpeg.quality=100                     
@@ -57,7 +79,9 @@ ro.media.enc.hprof.vid.bps=8000000
 
 #power saving
 pm.sleep_mode=1        
-ro.ril.disable.power.collapse=0 
+ro.ril.disable.power.collapse=0                
 
 #phone calls tweaks
-ro.telephony.call_ring.delay=0 
+ro.telephony.call_ring.delay=0                    
+ro.lge.proximity.delay=0                        
+mot.proximity.delay=0
