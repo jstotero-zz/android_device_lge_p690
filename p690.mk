@@ -12,6 +12,7 @@ PRODUCT_PACKAGES += \
     libmm-omxcore \
     libOmxCore \
     gps.p690 \
+    copybit.msm7k \
     LiveWallpapers \
     LiveWallpapersPicker \
     MagicSmokeWallpapers \
@@ -43,11 +44,12 @@ PRODUCT_COPY_FILES += \
 ## 2D (using proprietary)
 PRODUCT_COPY_FILES += \
     vendor/lge/p690/proprietary/lib/hw/lights.msm7k.so:system/lib/hw/lights.msm7k.so \
-    vendor/lge/p690/proprietary/lib/hw/gralloc.p690.so:system/lib/hw/gralloc.msm7k.so \
+    vendor/lge/p690/proprietary/lib/hw/gralloc.p690.so:system/lib/hw/gralloc.p690.so \
     vendor/lge/p690/proprietary/lib/hw/gralloc.msm7k.so:system/lib/hw/gralloc.msm7k.so \
     vendor/lge/p690/proprietary/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \
-    vendor/lge/p690/proprietary/lib/hw/copybit.p690.so:system/lib/hw/copybit.msm7k.so 
+    vendor/lge/p690/proprietary/lib/hw/copybit.p690.so:system/lib/hw/copybit.p690.so \
     vendor/lge/p690/proprietary/lib/hw/copybit.msm7k.so:system/lib/hw/copybit.msm7k.so 
+
 
 ## Sensors
 PRODUCT_COPY_FILES += \
