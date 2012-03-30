@@ -1,7 +1,7 @@
 ## hopemini@lge.com, 20100416
 
 on boot-pause
-	insmod fbcon
+	insmod fbconsole
     exec sbin/chargerlogo
 
 on boot
