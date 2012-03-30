@@ -12,7 +12,6 @@ PRODUCT_PACKAGES += \
     libmm-omxcore \
     libOmxCore \
     gps.p690 \
-    copybit.msm7k \
     LiveWallpapers \
     LiveWallpapersPicker \
     MagicSmokeWallpapers \
