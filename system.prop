@@ -50,6 +50,10 @@ ro.opengles.version=131072
 dalvik.vm.heapsize=48m
 hs.systemserver=48m   
 
+#wifi
+wifi.interface=wlan0  
+wifi.supplicant_scan_interval=180 
+
 #images and video capturing
 ro.media.enc.jpeg.quality=100                     
 ro.media.dec.jpeg.memcap=8000000               
