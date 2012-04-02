@@ -37,7 +37,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/init.lge.hidden_reset.sh:root/init.lge.hidden_reset.sh \
     $(LOCAL_PATH)/init.gelato.rc:root/init.gelato.rc \
     $(LOCAL_PATH)/ueventd.gelato.rc:root/ueventd.gelato.rc \
-    $(LOCAL_PATH)/prebuilt/initlogo.rle:root/initlogo.rle \
     $(LOCAL_PATH)/init.local.rc:/system/etc/init.local.rc
 
 ## 2D (using proprietary)
