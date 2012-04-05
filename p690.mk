@@ -8,6 +8,7 @@ PRODUCT_COPY_FILES += \
 DISABLE_DEXPREOPT += false
 
 PRODUCT_PACKAGES += \
+    hcitool \
     librs_jni \
     libmm-omxcore \
     libOmxCore \
