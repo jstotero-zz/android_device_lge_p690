@@ -86,6 +86,12 @@ PRODUCT_COPY_FILES += \
     vendor/lge/p690/proprietary/etc/firmware/wlan/cfg.dat:system/etc/firmware/wlan/cfg.dat \
     vendor/lge/p690/proprietary/etc/firmware/wlan/qcom_fw.bin:system/etc/firmware/wlan/qcom_fw.bin
 
+# FBcon and TUN
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/fbconsole.ko:system/lib/modules/fbconsole.ko \
+    $(LOCAL_PATH)/prebuilt/tun.ko:system/lib/modules/tun.ko 
+
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/vold.fstab:system/etc/vold.fstab \
 
