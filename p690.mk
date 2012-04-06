@@ -90,6 +90,7 @@ PRODUCT_COPY_FILES += \
 # FBcon and TUN
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilt/fbconsole.ko:system/lib/modules/fbconsole.ko \
+    $(LOCAL_PATH)/prebuilt/fbconsole.ko:root/fbconsole.ko \
     $(LOCAL_PATH)/prebuilt/tun.ko:system/lib/modules/tun.ko 
 
 
